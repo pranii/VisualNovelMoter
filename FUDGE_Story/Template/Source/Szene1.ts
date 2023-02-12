@@ -4,9 +4,9 @@ namespace Template {
     //Gesprochener Text
     let text = {
       charactername: {
-        T0000: ". . .",
-        T0001: ". . .",
-        T0003: ". . .",
+        T0000: "Hallo ich bin Vasi",
+        T0001: "Was geht Brani?",
+        T0002: "Inshallah",
 
       },
       anderercharacter: {
@@ -18,23 +18,29 @@ namespace Template {
 
     //Szenenablauf
     //Sound Lautstärke einstellen
-    ƒS.Sound.setMasterVolume(11);
+    ƒS.Sound.setMasterVolume(8);
 
     //Sound einspielen
     await ƒS.Sound.fade(sound.examplemusic, 0.07, 0.1, true); //Der Sound der in Main.ts definiert wurde
     console.log("audio is being played");
 
     //fade ist langsam einfaden, play ist direkt abspielen
-    await ƒS.Sound.play(sound.examplemusic, 0.07);
+ 
 
-
-    //Charakter anzeigen
-    await ƒS.Character.show(characters.charactername, characters.charactername.pose.standard, ƒS.positionPercent(50, 100));
-    //Update immer durchführen wenn etwas angezeigt oder wieder entfernt wird
+    //Anzeigen der Location, also des Backgrounds
+    ƒS.Location.show(locations.Hintergrund1); //Location initialisieren die in Main.ts definiert wurden
+    console.log("Background is being displayed");
     await ƒS.update(1);
 
+    //Charakter anzeigen
+    //await ƒS.Character.show(characters.charactername, characters.charactername.pose.standard, ƒS.positionPercent(50, 100));
+    //Update immer durchführen wenn etwas angezeigt oder wieder entfernt wird
+    //await ƒS.update(1);
+
     //Satzbau
-    await ƒS.Speech.tell(characters.anderercharacter, text.anderercharacter.T0000, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+    await ƒS.Speech.tell(characters.charactername, text.charactername.T0000, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+    await ƒS.Speech.tell(characters.charactername, text.charactername.T0001, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+    await ƒS.Speech.tell(characters.charactername, text.charactername.T0002, true /*Immer dann false bei Entscheidung die gleich kommt*/);
     await ƒS.update(3);
 
 
@@ -54,10 +60,6 @@ namespace Template {
         await ƒS.Character.hide(characters.charactername);
         await ƒS.update(2);
 
-        //Anzeigen der Location, also des Backgrounds
-        ƒS.Location.show(locations.Hintergrund1); //Location initialisieren die in Main.ts definiert wurden
-        console.log("Background is being displayed");
-        await ƒS.update(1);
         //Switch case beenden
         break;
 
@@ -71,8 +73,7 @@ namespace Template {
     //Ende der Szene
 
     //Sound ausblenden
-    ƒS.Sound.fade(sound.darkwind, 0, 0.8, true);
-    ƒS.Sound.fade(sound.MysteryManTheme, 0, 0.8, true);
+    ƒS.Sound.fade(sound.examplemusic, 0, 0.8, true);
     //Character verstecken
     ƒS.Character.hideAll();
 

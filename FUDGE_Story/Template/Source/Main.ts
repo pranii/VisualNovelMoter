@@ -21,14 +21,14 @@ namespace Template {
  //Sounds
  export let sound = {
   //music 
-  examplemusic: "Quelle",
+  examplemusic: "./Ressources/Audio/Audio_01.wav",
  };
 
  //Backgrounds
  export let locations = {
   Hintergrund1: {
-    name: "Bezeichnung",
-    background: "Quelle",
+    name: "BG?01",
+    background: "./Ressources/BG_Images/BG_01.png",
   },
   Hintergrund2: {
     name: "Bezeichnung",

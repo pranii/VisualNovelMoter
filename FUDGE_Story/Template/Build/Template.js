@@ -20,13 +20,13 @@ var Template;
     //Sounds
     Template.sound = {
         //music 
-        examplemusic: "Quelle",
+        examplemusic: "./Ressources/Audio/Audio_01.wav",
     };
     //Backgrounds
     Template.locations = {
         Hintergrund1: {
-            name: "Bezeichnung",
-            background: "Quelle",
+            name: "BG?01",
+            background: "./Ressources/BG_Images/BG_01.png",
         },
         Hintergrund2: {
             name: "Bezeichnung",
@@ -247,9 +247,9 @@ var Template;
         //Gesprochener Text
         let text = {
             charactername: {
-                T0000: ". . .",
-                T0001: ". . .",
-                T0003: ". . .",
+                T0000: "Hallo ich bin Vasi",
+                T0001: "Was geht Brani?",
+                T0002: "Inshallah",
             },
             anderercharacter: {
                 T0000: ". . .",
@@ -259,18 +259,23 @@ var Template;
         };
         //Szenenablauf
         //Sound Lautstärke einstellen
-        Template.ƒS.Sound.setMasterVolume(11);
+        Template.ƒS.Sound.setMasterVolume(8);
         //Sound einspielen
         await Template.ƒS.Sound.fade(Template.sound.examplemusic, 0.07, 0.1, true); //Der Sound der in Main.ts definiert wurde
         console.log("audio is being played");
         //fade ist langsam einfaden, play ist direkt abspielen
-        await Template.ƒS.Sound.play(Template.sound.examplemusic, 0.07);
-        //Charakter anzeigen
-        await Template.ƒS.Character.show(Template.characters.charactername, Template.characters.charactername.pose.standard, Template.ƒS.positionPercent(50, 100));
-        //Update immer durchführen wenn etwas angezeigt oder wieder entfernt wird
+        //Anzeigen der Location, also des Backgrounds
+        Template.ƒS.Location.show(Template.locations.Hintergrund1); //Location initialisieren die in Main.ts definiert wurden
+        console.log("Background is being displayed");
         await Template.ƒS.update(1);
+        //Charakter anzeigen
+        //await ƒS.Character.show(characters.charactername, characters.charactername.pose.standard, ƒS.positionPercent(50, 100));
+        //Update immer durchführen wenn etwas angezeigt oder wieder entfernt wird
+        //await ƒS.update(1);
         //Satzbau
-        await Template.ƒS.Speech.tell(Template.characters.anderercharacter, text.anderercharacter.T0000, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+        await Template.ƒS.Speech.tell(Template.characters.charactername, text.charactername.T0000, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+        await Template.ƒS.Speech.tell(Template.characters.charactername, text.charactername.T0001, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+        await Template.ƒS.Speech.tell(Template.characters.charactername, text.charactername.T0002, true /*Immer dann false bei Entscheidung die gleich kommt*/);
         await Template.ƒS.update(3);
         //Entscheidung
         let Entscheidungsname = {
@@ -286,10 +291,6 @@ var Template;
                 //Character verstecken
                 await Template.ƒS.Character.hide(Template.characters.charactername);
                 await Template.ƒS.update(2);
-                //Anzeigen der Location, also des Backgrounds
-                Template.ƒS.Location.show(Template.locations.Hintergrund1); //Location initialisieren die in Main.ts definiert wurden
-                console.log("Background is being displayed");
-                await Template.ƒS.update(1);
                 //Switch case beenden
                 break;
             case Entscheidungsname.option2:
@@ -299,8 +300,7 @@ var Template;
         await Template.ƒS.update(3);
         //Ende der Szene
         //Sound ausblenden
-        Template.ƒS.Sound.fade(Template.sound.darkwind, 0, 0.8, true);
-        Template.ƒS.Sound.fade(Template.sound.MysteryManTheme, 0, 0.8, true);
+        Template.ƒS.Sound.fade(Template.sound.examplemusic, 0, 0.8, true);
         //Character verstecken
         Template.ƒS.Character.hideAll();
         //Text verstecken

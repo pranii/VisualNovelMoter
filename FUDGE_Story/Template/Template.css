@@ -1,20 +1,158 @@
-scene {
-  width: 1280px;
-  height: 720px;
-  display: inline-block;
-}
-
-dialog[type=splash] {
-  margin: 0px;
-  padding: 0px;
+html, body {
   width: 100vw;
   height: 100vh;
+  margin: 0px;
+  padding: 0px;
   background-color: rgb(0, 0, 0);
-  color: white;
-  border: none;
-  cursor: pointer;
-  text-align: center;
+  overflow: hidden;
+  font-family: 'DotGothic16', sans-serif;
 }
-dialog[type=splash]>img#FudgeStoryLogo {
+
+scene {
+    width: 1280px; 
+    height: 720px; 
+    display: inline-block;
+    position: absolute;
+}
+
+canvas {
   width: 100%;
+  height: 100%;
+}
+
+/* Textbox */
+
+speech {
+  position: absolute;
+  padding-top: 10px;
+  font-size: 12pt;
+  bottom: 0px;
+  left: 0px;
+  color: rgb(245, 220, 220);
+  width: 100%;
+  height: 15vh;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
+}
+.disable-select {
+  user-select: none; /* supported by Chrome and Opera */
+ -webkit-user-select: none; /* Safari */
+ -khtml-user-select: none; /* Konqueror HTML */
+ -moz-user-select: none; /* Firefox */
+ -ms-user-select: none; /* Internet Explorer/Edge */
+}
+name {
+  font-size: 20pt;
+  display: block;
+  color: rgb(0, 192, 240);
+  margin-bottom: 10px;
+}
+/* Text für Auswahlfelder */
+.auswahl{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.788);
+  box-sizing: border-box;
+  border-style: dashed;
+  border-color: rgba(29, 29, 29, 0.418);
+}
+.auswahl:hover{
+  border-color: rgba(255, 94, 0, 0.384);
+  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+}
+.auswahl button{
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  border: none;
+  color: beige;
+  outline: none;
+  background-color: #0000;
+  font-size: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 2px;
+  cursor:pointer;
+  outline: none;
+}
+
+
+
+.auswahl button:hover{
+  transition: all .4s ease;
+-webkit-transition: all .4s ease;
+  background-color: none;
+  outline: none;
+  border-width: 2px;
+  color: rgba(255, 81, 0, 0.952);
+}
+speech input {
+  background-color: rgba(0, 0, 0, 0);
+  border-style: dashed;
+  margin-left: 10px;
+  /*border-color: rgb(0, 128, 128);*/
+  color: rgb(245, 220, 220);
+  font-family: 'Press Start 2P', cursive;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  font-size: 12pt;
+
+}
+speech input:focus{
+  outline: none;
+}
+speech input:hover{
+  border-color: rgb(0, 128, 128);
+  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+}
+/* Novel Page */
+
+.novel-page{
+  background-color: rgba(43, 43, 43, 0.8);
+  border: beige;
+  color: beige;
+}
+
+/* Menu */
+
+.credits {
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(43, 43, 43, 0.8);
+  color: beige;
+}
+
+.gameMenu {
+  position: absolute;
+  background-color: rgba(43, 43, 43, 0.8);
+  border: none;
+}
+
+.gameMenu button {
+border: none;
+outline: none;
+cursor: default;
+background-color: #0000;
+color: beige;
+font-size: 15px;
+cursor:pointer
+}
+
+/* Inventar */
+
+dialog[type="inventory"] {
+  color: rgb(203, 253, 255);
+  width: 50%;
+  border: 2px solid;
+  background-color: rgb(51, 51, 51);
+  font-family: 'KoHo', sans-serif;
+}
+
+dialog[type="inventory"]>ul>li img, dialog[type="inventory"]>ul>li name, dialog[type="inventory"]>ul>li description{
+width: 33%;
 }
