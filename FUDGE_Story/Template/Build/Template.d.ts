@@ -27,7 +27,7 @@ declare namespace Template {
         };
     };
     let characters: {
-        charactername: {
+        Tsuki: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
@@ -35,9 +35,11 @@ declare namespace Template {
                 eyesonly: string;
             };
         };
-        anderercharacter: {
+        Taiyō: {
             name: string;
         };
+    }, TaiyōundTsuki: {
+        name: "Taiyō und Tsuki";
     };
     function fromLeftToRight(): ƒS.AnimationDefinition;
     function fromlefterToLeft(): ƒS.AnimationDefinition;

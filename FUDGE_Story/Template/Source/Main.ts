@@ -8,12 +8,12 @@ namespace Template {
  export let transition = {
   Transitionname: {
     duration: 1,
-    alpha: "Quelle",
+    alpha: "./Ressources/Logo.png",
     edge: 1,
   },
   Transitionname2: {
     duration: 1,
-    alpha: "Quelle",
+    alpha: "./Ressources/Logo.png",
     edge: 1,
   }
 };
@@ -31,8 +31,8 @@ namespace Template {
     background: "./Ressources/Background1/Wohnzimmer1.png",
   },
   Hintergrund2: {
-    name: "Bezeichnung",
-    background: "Quelle",
+    name: "Wohnzimmer2",
+    background: "./Ressources/Background1/Wohnzimmer2.png",
   }
 };
 
@@ -42,13 +42,16 @@ export let characters = {
     name: "Tsuki",
     origin: ƒS.ORIGIN.BOTTOMLEFT, //Wo soll er auftauchen
     pose: { //Gefühlsbilder?
-      standard: "Quelle",
+      standard: "./Ressources/Ressources/Character/Twins",
       eyesonly: "Quelle"
     }
   },
   Taiyō: {
     name: "Taiyō",
   }
+},
+TaiyōundTsuki: {
+  name: "Taiyō und Tsuki",
 };
 
  //Animations

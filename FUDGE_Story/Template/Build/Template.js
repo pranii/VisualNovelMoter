@@ -8,12 +8,12 @@ var Template;
     Template.transition = {
         Transitionname: {
             duration: 1,
-            alpha: "Quelle",
+            alpha: "./Ressources/Logo.png",
             edge: 1,
         },
         Transitionname2: {
             duration: 1,
-            alpha: "Quelle",
+            alpha: "./Ressources/Logo.png",
             edge: 1,
         }
     };
@@ -25,8 +25,8 @@ var Template;
     //Backgrounds
     Template.locations = {
         Hintergrund1: {
-            name: "BG?01",
-            background: "./Ressources/BG_Images/BG_01.png",
+            name: "Wohnzimmer",
+            background: "./Ressources/Background1/Wohnzimmer1.png",
         },
         Hintergrund2: {
             name: "Bezeichnung",
@@ -35,16 +35,16 @@ var Template;
     };
     //Charakters
     Template.characters = {
-        charactername: {
-            name: "SeinName",
+        Tsuki: {
+            name: "Tsuki",
             origin: Template.ƒS.ORIGIN.BOTTOMLEFT,
             pose: {
                 standard: "Quelle",
                 eyesonly: "Quelle"
             }
         },
-        anderercharacter: {
-            name: "SeinName",
+        Taiyō: {
+            name: "Taiyō",
         }
     };
     //Animations
@@ -246,15 +246,32 @@ var Template;
         console.log("FudgeStory Template Scene1 starting");
         //Gesprochener Text
         let text = {
-            charactername: {
-                T0000: "Tschs ich bin Vasi",
-                T0001: "Was geht Brani?",
-                T0002: "Inshallah",
+            Tsuki: {
+                T0000: "Ja, das wird witzig! Geh doch schon einmal ins Wohnzimmer, dann besprechen wir, was wir heute unternehmen. Ich komme auch gleich, ich bring uns unsere Gläser mit.",
+                T0001: "Gerne. Also. Was machen wir heute? Sollen wir vielleicht mal nachsehen, was unser alter Nachbar Kitoro treibt?",
+                T0002: "Gute Idee.",
+                T0003: "Stimmt.",
+                T0004: "……",
+                T0005: " Was soll schon passieren. ",
+                T0006: "Ich pack noch kurz unseren Rucksack. Auf leerem Magen kann man schlecht Abenteuer erleben.",
+                T0007: "Ja.",
+                T0008: "...",
+                T0009: "Ich glaube die Musik kommt von dort! Immer mir nach.",
+                T0010: "Ich pack noch kurz unseren Rucksack. Auf leerem Magen kann man schlecht Abenteuer erleben.",
             },
-            anderercharacter: {
-                T0000: ". . .",
-                T0001: ". . .",
-                T0003: ". . .",
+            Taiyō: {
+                T0000: "So schmeckt Freiheit, Tsuki. Ich freue mich auf den Sommer mit dir. Ich hab Lust auf Abenteuer und Sonnenstrahlen.",
+                T0001: "Danke für den Orangensaft.",
+                T0003: "Klingt gut! Wir können mit seinem Hund spazieren gehen.",
+                T0004: "Die Fabrik ist hier gleich um die Ecke!",
+                T0005: "Was sagst du? Gehen wir uns das mal ansehen?",
+                T0006: "Hörst du das auch?",
+                T0007: "Meinst du?",
+                T0008: ". . .",
+                T0009: ". . .",
+            },
+            TaiyōundTsuki: {
+                T0000: "AHHHHHHHHHHHH.",
             }
         };
         //Szenenablauf
@@ -269,13 +286,13 @@ var Template;
         console.log("Background is being displayed");
         await Template.ƒS.update(1);
         //Charakter anzeigen
-        //await ƒS.Character.show(characters.charactername, characters.charactername.pose.standard, ƒS.positionPercent(50, 100));
+        //await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(50, 100));
         //Update immer durchführen wenn etwas angezeigt oder wieder entfernt wird
         //await ƒS.update(1);
         //Satzbau
-        await Template.ƒS.Speech.tell(Template.characters.charactername, text.charactername.T0000, true /*Immer dann false bei Entscheidung die gleich kommt*/);
-        await Template.ƒS.Speech.tell(Template.characters.charactername, text.charactername.T0001, true /*Immer dann false bei Entscheidung die gleich kommt*/);
-        await Template.ƒS.Speech.tell(Template.characters.charactername, text.charactername.T0002, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+        await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0000, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+        await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0001, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+        await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0002, true /*Immer dann false bei Entscheidung die gleich kommt*/);
         await Template.ƒS.update(3);
         //Entscheidung
         let Entscheidungsname = {
@@ -285,11 +302,11 @@ var Template;
         let EntscheidungsnamenElement = await Template.ƒS.Menu.getInput(Entscheidungsname, "auswahl");
         switch (EntscheidungsnamenElement) {
             case Entscheidungsname.option1:
-                await Template.ƒS.Speech.tell(Template.characters.anderercharacter, text.anderercharacter.T0001, true);
+                await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0001, true);
                 //Animation des Character-Bildes
-                await Template.ƒS.Character.animate(Template.characters.charactername, Template.characters.charactername.pose.standard, /*Animationswahl*/ Template.fromCenterToLeft());
+                await Template.ƒS.Character.animate(Template.characters.Tsuki, Template.characters.Tsuki.pose.standard, /*Animationswahl*/ Template.fromCenterToLeft());
                 //Character verstecken
-                await Template.ƒS.Character.hide(Template.characters.charactername);
+                await Template.ƒS.Character.hide(Template.characters.Tsuki);
                 await Template.ƒS.update(2);
                 //Switch case beenden
                 break;

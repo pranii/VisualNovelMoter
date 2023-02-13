@@ -4,15 +4,32 @@ namespace Template {
     //Gesprochener Text
     let text = {
       Tsuki: {
-        T0000: "Tschs ich bin Vasi",
-        T0001: "Was geht Brani?",
-        T0002: "Inshallah",
-
+        T0000: "Ja, das wird witzig! Geh doch schon einmal ins Wohnzimmer, dann besprechen wir, was wir heute unternehmen. Ich komme auch gleich, ich bring uns unsere Gläser mit.",
+        T0001: "Gerne. Also. Was machen wir heute? Sollen wir vielleicht mal nachsehen, was unser alter Nachbar Kitoro treibt?",
+        T0002: "Gute Idee.",
+        T0003: "Stimmt.",
+        T0004: "……",
+        T0005: " Was soll schon passieren. ",
+        T0006: "Ich pack noch kurz unseren Rucksack. Auf leerem Magen kann man schlecht Abenteuer erleben.",
+        T0007: "Ja.",
+        T0008: "...",
+        T0009: "Ich glaube die Musik kommt von dort! Immer mir nach.",
+        T0010: "Ich pack noch kurz unseren Rucksack. Auf leerem Magen kann man schlecht Abenteuer erleben.",
       },
       Taiyō: {
-        T0000: ". . .",
-        T0001: ". . .",
-        T0003: ". . .",
+        T0000: "So schmeckt Freiheit, Tsuki. Ich freue mich auf den Sommer mit dir. Ich hab Lust auf Abenteuer und Sonnenstrahlen.",
+        T0001: "Danke für den Orangensaft.",
+        T0003: "Klingt gut! Wir können mit seinem Hund spazieren gehen.",
+        T0004: "Die Fabrik ist hier gleich um die Ecke!",
+        T0005: "Was sagst du? Gehen wir uns das mal ansehen?",
+        T0006: "Hörst du das auch?",
+        T0007: "Meinst du?",
+        T0008: ". . .",
+        T0009: ". . .",
+      }
+      TaiyōundTsuki: {
+        T0000: "AHHHHHHHHHHHH.",
+        
       }
     };
 
@@ -36,6 +53,8 @@ namespace Template {
     //await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(50, 100));
     //Update immer durchführen wenn etwas angezeigt oder wieder entfernt wird
     //await ƒS.update(1);
+
+
 
     //Satzbau
     await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0000, true /*Immer dann false bei Entscheidung die gleich kommt*/);
