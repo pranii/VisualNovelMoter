@@ -4,7 +4,7 @@ namespace Template {
     //Gesprochener Text
     let text = {
       charactername: {
-        T0000: "Hallo ich bin Vasi",
+        T0000: "Tschs ich bin Vasi",
         T0001: "Was geht Brani?",
         T0002: "Inshallah",
 

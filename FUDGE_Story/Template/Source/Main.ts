@@ -27,8 +27,8 @@ namespace Template {
  //Backgrounds
  export let locations = {
   Hintergrund1: {
-    name: "BG?01",
-    background: "./Ressources/BG_Images/BG_01.png",
+    name: "Wohnzimmer",
+    background: "./Ressources/Background1/Wohnzimmer1.png",
   },
   Hintergrund2: {
     name: "Bezeichnung",
@@ -38,16 +38,16 @@ namespace Template {
 
 //Charakters
 export let characters = {
-  charactername: {
-    name: "SeinName",
+  Tsuki: {
+    name: "Tsuki",
     origin: ƒS.ORIGIN.BOTTOMLEFT, //Wo soll er auftauchen
     pose: { //Gefühlsbilder?
       standard: "Quelle",
       eyesonly: "Quelle"
     }
   },
-  anderercharacter: {
-    name: "SeinName",
+  Taiyō: {
+    name: "Taiyō",
   }
 };
 
