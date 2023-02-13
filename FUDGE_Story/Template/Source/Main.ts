@@ -27,12 +27,28 @@ namespace Template {
  //Backgrounds
  export let locations = {
   Hintergrund1: {
+    name: "Balkon",
+    background: "./Ressources/Background1/Balkon.png",
+  },
+  Hintergrund2: {
     name: "Wohnzimmer",
     background: "./Ressources/Background1/Wohnzimmer1.png",
   },
-  Hintergrund2: {
+  Hintergrund3: {
     name: "Wohnzimmer2",
     background: "./Ressources/Background1/Wohnzimmer2.png",
+  },
+  Hintergrund4: {
+    name: "Nachrichten",
+    background: "./Ressources/Background1/Nachrichten.png",
+  },
+  Hintergrund5: {
+    name: "LP1",
+    background: "./Ressources/Background1/LostPlace1.png",
+  },
+  Hintergrund6: {
+    name: "LP2",
+    background: "./Ressources/Background1/LostPlace2.png",
   }
 };
 
@@ -42,17 +58,20 @@ export let characters = {
     name: "Tsuki",
     origin: ƒS.ORIGIN.BOTTOMLEFT, //Wo soll er auftauchen
     pose: { //Gefühlsbilder?
-      standard: "./Ressources/Ressources/Character/Twins",
+      standard: "./Ressources/Ressources/Character/Twins/T",
       eyesonly: "Quelle"
     }
   },
+
   Taiyō: {
     name: "Taiyō",
+  },
+
+  TaiyōundTsuki: {
+    name: "Taiyō und Tsuki",
   }
-},
-TaiyōundTsuki: {
-  name: "Taiyō und Tsuki",
 };
+
 
  //Animations
  export function fromLeftToRight(): ƒS.AnimationDefinition {

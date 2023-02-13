@@ -25,6 +25,22 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        Hintergrund3: {
+            name: string;
+            background: string;
+        };
+        Hintergrund4: {
+            name: string;
+            background: string;
+        };
+        Hintergrund5: {
+            name: string;
+            background: string;
+        };
+        Hintergrund6: {
+            name: string;
+            background: string;
+        };
     };
     let characters: {
         Tsuki: {
@@ -38,8 +54,9 @@ declare namespace Template {
         Taiyō: {
             name: string;
         };
-    }, TaiyōundTsuki: {
-        name: "Taiyō und Tsuki";
+        TaiyōundTsuki: {
+            name: string;
+        };
     };
     function fromLeftToRight(): ƒS.AnimationDefinition;
     function fromlefterToLeft(): ƒS.AnimationDefinition;

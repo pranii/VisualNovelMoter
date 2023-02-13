@@ -25,12 +25,28 @@ var Template;
     //Backgrounds
     Template.locations = {
         Hintergrund1: {
+            name: "Balkon",
+            background: "./Ressources/Background1/Balkon.png",
+        },
+        Hintergrund2: {
             name: "Wohnzimmer",
             background: "./Ressources/Background1/Wohnzimmer1.png",
         },
-        Hintergrund2: {
-            name: "Bezeichnung",
-            background: "Quelle",
+        Hintergrund3: {
+            name: "Wohnzimmer2",
+            background: "./Ressources/Background1/Wohnzimmer2.png",
+        },
+        Hintergrund4: {
+            name: "Nachrichten",
+            background: "./Ressources/Background1/Nachrichten.png",
+        },
+        Hintergrund5: {
+            name: "LP1",
+            background: "./Ressources/Background1/LostPlace1.png",
+        },
+        Hintergrund6: {
+            name: "LP2",
+            background: "./Ressources/Background1/LostPlace2.png",
         }
     };
     //Charakters
@@ -39,12 +55,15 @@ var Template;
             name: "Tsuki",
             origin: Template.ƒS.ORIGIN.BOTTOMLEFT,
             pose: {
-                standard: "Quelle",
+                standard: "./Ressources/Ressources/Character/Twins/T",
                 eyesonly: "Quelle"
             }
         },
         Taiyō: {
             name: "Taiyō",
+        },
+        TaiyōundTsuki: {
+            name: "Taiyō und Tsuki",
         }
     };
     //Animations
@@ -260,7 +279,7 @@ var Template;
                 T0010: "Ich pack noch kurz unseren Rucksack. Auf leerem Magen kann man schlecht Abenteuer erleben.",
             },
             Taiyō: {
-                T0000: "So schmeckt Freiheit, Tsuki. Ich freue mich auf den Sommer mit dir. Ich hab Lust auf Abenteuer und Sonnenstrahlen.",
+                T0000: "So schmeckt Freiheit Tsuki! Unser Sommer wird wunderschön. Ich freue mich schon auf unsere Abenteuer!",
                 T0001: "Danke für den Orangensaft.",
                 T0003: "Klingt gut! Wir können mit seinem Hund spazieren gehen.",
                 T0004: "Die Fabrik ist hier gleich um die Ecke!",
@@ -286,35 +305,41 @@ var Template;
         console.log("Background is being displayed");
         await Template.ƒS.update(1);
         //Charakter anzeigen
-        //await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(50, 100));
+        // await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(50, 100));
         //Update immer durchführen wenn etwas angezeigt oder wieder entfernt wird
-        //await ƒS.update(1);
+        // await ƒS.update(1);
         //Satzbau
-        await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0000, true /*Immer dann false bei Entscheidung die gleich kommt*/);
-        await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0001, true /*Immer dann false bei Entscheidung die gleich kommt*/);
-        await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0002, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+        await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0000, true); /*Immer dann false bei Entscheidung die gleich kommt*/
+        await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0001, true);
+        await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0002, true);
         await Template.ƒS.update(3);
-        //Entscheidung
-        let Entscheidungsname = {
-            option1: "Wähle diese Option",
-            option2: "Wähle diese Option"
-        };
-        let EntscheidungsnamenElement = await Template.ƒS.Menu.getInput(Entscheidungsname, "auswahl");
-        switch (EntscheidungsnamenElement) {
-            case Entscheidungsname.option1:
-                await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0001, true);
+        /*
+            //Entscheidung
+            let Entscheidungsname = {
+              option1: "Wähle diese Option",
+              option2: "Wähle diese Option"
+            };
+            let EntscheidungsnamenElement = await ƒS.Menu.getInput(Entscheidungsname, "auswahl");
+            switch (EntscheidungsnamenElement) {
+              case Entscheidungsname.option1:
+                await ƒS.Speech.tell(characters.Taiyō, text.Taiyō.T0001, true);
                 //Animation des Character-Bildes
-                await Template.ƒS.Character.animate(Template.characters.Tsuki, Template.characters.Tsuki.pose.standard, /*Animationswahl*/ Template.fromCenterToLeft());
-                //Character verstecken
-                await Template.ƒS.Character.hide(Template.characters.Tsuki);
-                await Template.ƒS.update(2);
-                //Switch case beenden
-                break;
-            case Entscheidungsname.option2:
-                //Hier steht dann der Code, der ausgeführt wird, sobald du die option2 geklickt hast
-                break;
-        }
-        await Template.ƒS.update(3);
+                await ƒS.Character.animate(characters.Tsuki, characters.Tsuki.pose.standard, /*Animationswahl*/ /*fromCenterToLeft());
+
+        //Character verstecken
+        await ƒS.Character.hide(characters.Tsuki);
+        await ƒS.update(2);
+
+        //Switch case beenden
+        break;
+
+      case Entscheidungsname.option2:
+        //Hier steht dann der Code, der ausgeführt wird, sobald du die option2 geklickt hast
+        break;
+    }
+
+    await ƒS.update(3);
+*/
         //Ende der Szene
         //Sound ausblenden
         Template.ƒS.Sound.fade(Template.sound.examplemusic, 0, 0.8, true);

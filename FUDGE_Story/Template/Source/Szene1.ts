@@ -17,7 +17,7 @@ namespace Template {
         T0010: "Ich pack noch kurz unseren Rucksack. Auf leerem Magen kann man schlecht Abenteuer erleben.",
       },
       Taiyō: {
-        T0000: "So schmeckt Freiheit, Tsuki. Ich freue mich auf den Sommer mit dir. Ich hab Lust auf Abenteuer und Sonnenstrahlen.",
+        T0000: "So schmeckt Freiheit Tsuki! Unser Sommer wird wunderschön. Ich freue mich schon auf unsere Abenteuer!",
         T0001: "Danke für den Orangensaft.",
         T0003: "Klingt gut! Wir können mit seinem Hund spazieren gehen.",
         T0004: "Die Fabrik ist hier gleich um die Ecke!",
@@ -26,7 +26,8 @@ namespace Template {
         T0007: "Meinst du?",
         T0008: ". . .",
         T0009: ". . .",
-      }
+      }, 
+
       TaiyōundTsuki: {
         T0000: "AHHHHHHHHHHHH.",
         
@@ -50,19 +51,19 @@ namespace Template {
     await ƒS.update(1);
 
     //Charakter anzeigen
-    //await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(50, 100));
+   // await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(50, 100));
     //Update immer durchführen wenn etwas angezeigt oder wieder entfernt wird
-    //await ƒS.update(1);
+   // await ƒS.update(1);
 
 
 
     //Satzbau
-    await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0000, true /*Immer dann false bei Entscheidung die gleich kommt*/);
-    await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0001, true /*Immer dann false bei Entscheidung die gleich kommt*/);
-    await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0002, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+    await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0000, true);   /*Immer dann false bei Entscheidung die gleich kommt*/
+    await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0001, true);
+    await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0002, true);
     await ƒS.update(3);
 
-
+/*
     //Entscheidung
     let Entscheidungsname = {
       option1: "Wähle diese Option",
@@ -73,7 +74,7 @@ namespace Template {
       case Entscheidungsname.option1:
         await ƒS.Speech.tell(characters.Taiyō, text.Taiyō.T0001, true);
         //Animation des Character-Bildes
-        await ƒS.Character.animate(characters.Tsuki, characters.Tsuki.pose.standard, /*Animationswahl*/fromCenterToLeft());
+        await ƒS.Character.animate(characters.Tsuki, characters.Tsuki.pose.standard, /*Animationswahl*//*fromCenterToLeft());
 
         //Character verstecken
         await ƒS.Character.hide(characters.Tsuki);
@@ -88,6 +89,7 @@ namespace Template {
     }
 
     await ƒS.update(3);
+*/
 
     //Ende der Szene
 
