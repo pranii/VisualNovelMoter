@@ -3,13 +3,13 @@ namespace Template {
     console.log("FudgeStory Template Scene1 starting");
     //Gesprochener Text
     let text = {
-      charactername: {
+      Tsuki: {
         T0000: "Tschs ich bin Vasi",
         T0001: "Was geht Brani?",
         T0002: "Inshallah",
 
       },
-      anderercharacter: {
+      Taiyō: {
         T0000: ". . .",
         T0001: ". . .",
         T0003: ". . .",
@@ -33,14 +33,14 @@ namespace Template {
     await ƒS.update(1);
 
     //Charakter anzeigen
-    //await ƒS.Character.show(characters.charactername, characters.charactername.pose.standard, ƒS.positionPercent(50, 100));
+    //await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(50, 100));
     //Update immer durchführen wenn etwas angezeigt oder wieder entfernt wird
     //await ƒS.update(1);
 
     //Satzbau
-    await ƒS.Speech.tell(characters.charactername, text.charactername.T0000, true /*Immer dann false bei Entscheidung die gleich kommt*/);
-    await ƒS.Speech.tell(characters.charactername, text.charactername.T0001, true /*Immer dann false bei Entscheidung die gleich kommt*/);
-    await ƒS.Speech.tell(characters.charactername, text.charactername.T0002, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+    await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0000, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+    await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0001, true /*Immer dann false bei Entscheidung die gleich kommt*/);
+    await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0002, true /*Immer dann false bei Entscheidung die gleich kommt*/);
     await ƒS.update(3);
 
 
@@ -52,12 +52,12 @@ namespace Template {
     let EntscheidungsnamenElement = await ƒS.Menu.getInput(Entscheidungsname, "auswahl");
     switch (EntscheidungsnamenElement) {
       case Entscheidungsname.option1:
-        await ƒS.Speech.tell(characters.anderercharacter, text.anderercharacter.T0001, true);
+        await ƒS.Speech.tell(characters.Taiyō, text.Taiyō.T0001, true);
         //Animation des Character-Bildes
-        await ƒS.Character.animate(characters.charactername, characters.charactername.pose.standard, /*Animationswahl*/fromCenterToLeft());
+        await ƒS.Character.animate(characters.Tsuki, characters.Tsuki.pose.standard, /*Animationswahl*/fromCenterToLeft());
 
         //Character verstecken
-        await ƒS.Character.hide(characters.charactername);
+        await ƒS.Character.hide(characters.Tsuki);
         await ƒS.update(2);
 
         //Switch case beenden
