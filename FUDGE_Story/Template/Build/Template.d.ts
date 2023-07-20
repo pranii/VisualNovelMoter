@@ -13,6 +13,17 @@ declare namespace Template {
             edge: number;
         };
     };
+    let gameMenu: ƒS.Menu;
+    function hndKeyPress(_event: KeyboardEvent): Promise<any>;
+    let items: {
+        Apfel: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+            exist: boolean;
+        };
+    };
     let sound: {
         examplemusic: string;
     };
@@ -41,6 +52,42 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        Forest1: {
+            name: string;
+            background: string;
+        };
+        Forest2: {
+            name: string;
+            background: string;
+        };
+        Jorogumolivingroom: {
+            name: string;
+            background: string;
+        };
+        Jorogumosleepingroom: {
+            name: string;
+            background: string;
+        };
+        RusalkaShore: {
+            name: string;
+            background: string;
+        };
+        ShoreShore: {
+            name: string;
+            background: string;
+        };
+        Felsentag: {
+            name: string;
+            background: string;
+        };
+        FelsenNacht: {
+            name: string;
+            background: string;
+        };
+        Blackscreen: {
+            name: string;
+            background: string;
+        };
     };
     let characters: {
         Tsuki: {
@@ -48,14 +95,39 @@ declare namespace Template {
             origin: ƒ.ORIGIN2D;
             pose: {
                 standard: string;
-                eyesonly: string;
+                anxious: string;
+                friendly: string;
+                determined: string;
+                transiotions: string;
             };
         };
         Taiyō: {
             name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                standard: string;
+                eyesonly: string;
+            };
         };
-        TaiyōundTsuki: {
+        Jorogumo: {
             name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                standard: string;
+                jorogumo1: string;
+                ending: string;
+                transition1: string;
+                transition2: string;
+                transition3: string;
+            };
+        };
+        Rusalka: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                standard: string;
+                eyesonly: string;
+            };
         };
     };
     function fromLeftToRight(): ƒS.AnimationDefinition;
@@ -78,12 +150,22 @@ declare namespace Template {
         crazy: number;
         calm: number;
     };
-    let gameMenu: ƒS.Menu;
     function incrementSound(): void;
     function decrementSound(): void;
     function showCredits(): void;
-    function hndKeyPress(_event: KeyboardEvent): Promise<any>;
+}
+declare namespace Template {
+    function Szene3(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function Szene1(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Szene2(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Szene4(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function Szene5(): ƒS.SceneReturn;
 }

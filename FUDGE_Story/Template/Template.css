@@ -149,13 +149,13 @@ cursor:pointer
 /* Inventar */
 
 dialog[type="inventory"] {
-  color: rgb(203, 253, 255);
+  color: rgb(0, 0, 0);
   width: 50%;
   border: 2px solid;
-  background-color: rgb(51, 51, 51);
+  background-color: rgb(255, 255, 255);
   font-family: 'KoHo', sans-serif;
 }
 
 dialog[type="inventory"]>ul>li img, dialog[type="inventory"]>ul>li name, dialog[type="inventory"]>ul>li description{
-width: 33%;
+width: 15%;
 }

@@ -17,6 +17,97 @@ namespace Template {
     edge: 1,
   }
 };
+//Menü
+let inGameMenu = {
+  save: "Save",
+  load: "Load",
+  credits: "Credits",
+  volumeup: "+",
+  volumedown: "-",
+  inventar: "Inventar",
+};
+
+ //Menüfunktionen
+ export let gameMenu: ƒS.Menu;
+
+//Buttonfunktionen
+async function buttonFunctionalities(_option: string): Promise<void> {
+  console.log(_option);
+  switch (_option) {
+    //Speichern
+    case inGameMenu.save:
+      await ƒS.Progress.save();
+      break;
+    //Laden
+    case inGameMenu.load:
+      await ƒS.Progress.load();
+      break;
+    //Sound lauter
+    case inGameMenu.volumeup:
+      incrementSound();
+      break;
+    //Sound leiser
+    case inGameMenu.volumedown:
+      decrementSound();
+      break;
+    case inGameMenu.inventar:
+        await ƒS.Inventory.open(); 
+        await ƒS.update();
+        console.log("inventory open");
+        break;
+    //Credits
+
+    case inGameMenu.credits:
+      showCredits();
+      break;
+  }
+}
+  //Menü standardmäßig an = true. Standardmäßig aus = false
+let menu: boolean = false;
+
+//Shortcuts fürs Menu
+document.addEventListener("keydown", hndKeyPress);
+export async function hndKeyPress(_event: KeyboardEvent): Promise<any> {
+   switch (_event.code) {
+     case ƒ.KEYBOARD_CODE.F8:
+       console.log("Save");
+       await ƒS.Progress.save();
+       break;
+     case ƒ.KEYBOARD_CODE.F9:
+       console.log("Load");
+       await ƒS.Progress.load();
+       break;
+     case ƒ.KEYBOARD_CODE.M:
+       if (menu) {
+         console.log("Close");
+         gameMenu.close();
+         menu = false;
+       } else {
+         console.log("Open");
+         gameMenu.open();
+         menu = true;
+       }
+       break;
+      case ƒ.KEYBOARD_CODE.I:
+        await ƒS.Inventory.open(); 
+
+        await ƒS.update();
+        //hier inventar öffnungsfunktion
+      console.log("A");
+ }
+}
+ 
+
+
+export let items = {
+  Apfel: {
+    name: "Apfel",
+    description: " saftiger Apfel.",
+    image: "./Ressources/Images/Items/Apfel.png",
+    static: true,
+    exist: true,
+  }
+  }
 
  //Sounds
  export let sound = {
@@ -49,8 +140,58 @@ namespace Template {
   Hintergrund6: {
     name: "LP2",
     background: "./Ressources/Background1/LostPlace2.png",
+  },
+
+
+  Forest1: {
+    name: "Forest1",
+    background: "./Ressources/Background1/World2/Forest.png",
+  },
+
+  Forest2: {
+    name: "Forest2",
+    background: "FUDGE_Story/Template/Ressources/Background1/World2/ForestForest.png",
+  },
+
+  Jorogumolivingroom: {
+    name: "Jorogumolivingroom",
+    background: "./Ressources/Background1/Jorogumoliving.png",
+  },
+
+  Jorogumosleepingroom: {
+    name: "JorogumoSleeping",
+    background: "./Ressources/Background1/Jorogumosleep.png",
+  },
+
+  RusalkaShore: {
+    name: "RusalkaShore",
+    background: "./Ressources/Background1/World2/Shore.png",
+  },
+  ShoreShore: {
+    name: "ShoreShore",
+    background: "./Ressources/Background1/World2/ShoreShore.png",
+  },
+
+  Felsentag: {
+    name: "FelsenTag",
+    background: "./Ressources/Background1/World2/Felsen.png",
+  },
+
+  FelsenNacht: {
+    name: "LP2",
+    background: "./Ressources/Background1/World2/Ende.png",
+  },
+
+  Blackscreen: {
+    name: "Blackscreen",
+    background: "./Ressources/Background1/World2/33.png",
   }
 };
+
+
+
+
+
 
 //Charakters
 export let characters = {
@@ -58,18 +199,47 @@ export let characters = {
     name: "Tsuki",
     origin: ƒS.ORIGIN.BOTTOMLEFT, //Wo soll er auftauchen
     pose: { //Gefühlsbilder?
-      standard: "./Ressources/Ressources/Character/Twins/T",
-      eyesonly: "Quelle"
+      standard: "./Ressources/Character/Twins/Tsuki.png",
+      anxious: "./Ressources/Character/Twins/twinsanxious.png",
+      friendly: "./Ressources/Character/Twins/TaiyoTsukifriendly.png",
+      determined: "./Ressources/Character/Twins/determined.png",
+      transiotions: "./Ressources/Character/Twins/Transition.png"
     }
+    
   },
 
   Taiyō: {
     name: "Taiyō",
+    origin: ƒS.ORIGIN.BOTTOMLEFT, 
+    pose: { 
+      standard: "./Ressources/Character/Twins/Tayio.png",
+      eyesonly: "Quelle"
+    }
   },
 
-  TaiyōundTsuki: {
-    name: "Taiyō und Tsuki",
+  Jorogumo: {
+    name: "Jorogumo",
+    origin: ƒS.ORIGIN.BOTTOMLEFT, 
+    pose: { 
+      standard: "./Ressources/Character/Jorugomo/Jorogumo1.png",
+      jorogumo1: "./Ressources/Character/Jorugomo/Jorogumo2.png",
+      ending: "./Ressources/Character/Jorugomo/Jorogumo ending.png",
+      transition1: "./Ressources/Character/Jorugomo/Jorogumotrs20.png",
+      transition2: "./Ressources/Character/Jorugomo/Jorogumotrs21.png",
+      transition3: "./Ressources/Character/Jorugomo/Jorogumotrs22.png",
+    }
+  },
+    Rusalka: {
+      name: "Rusalka",
+      origin: ƒS.ORIGIN.BOTTOMLEFT, 
+      pose: { 
+        standard: "./Ressources/Character/Rusalka/Rusalka.png",
+        eyesonly: "Quelle"
+      }
   }
+
+
+  
 };
 
 
@@ -120,31 +290,18 @@ export let dataForSave = {
   //Hier Speicherbare Elemente eintragen
   points: 0,
   gesprochen: {
-    marie: false,
-    james: false,
-    violet: false,
-    luna: false
+    Rusalka: false,
+    Jorogumo: false,
+    Taiyo: false,
+    Tsuki: false
   },
   beispielwert: 0,
   beispielbool: false,
   evil: 0,
   good: 0,
-  crazy: 0,
-  calm: 0,
+
 };
 
-//Menü
-let inGameMenu = {
-  save: "Save",
-  load: "Load",
-  credits: "Credits",
-  volumeup: "+",
-  volumedown: "-",
-  inventar: "Inventar",
-};
-
- //Menüfunktionen
- export let gameMenu: ƒS.Menu;
 
  let volume: number = 5.0;
 
@@ -168,88 +325,18 @@ export function showCredits(): void {
   ƒS.Text.print(
     "Die Visual Novel wurde mit FudgeStory erstellt." +
     "<br/>" +
-    "Von Leonie Schwall" +
+    "Von Pranvera Pelaj" +
     "<br/>" +
-    "Die Hintergründe, Charaktere und Items wurden selbst gezeichnet." +
+    "Die Hintergründe, Charaktere und Items wurden mit Hilfe von MidJourney und DALL-E generiert." +
     "<br/>" +
-    "Die Transitions stammen aus dem FreeTransitions Ordner, der zu Verfügung gestellt wurrde." +
+    "Die Transitions stammen aus dem FreeTransitions Ordner, der zu Verfügung gestellt wurde." +
     "<br/>" +
-    "Die Soundelemente wurden mit einer Envato Elements Lizenz lizensiert heruntergeladen" +
+    "Die Soundelemente wurden mit einer Motion Array Lizenz lizensiert heruntergeladen." +
     "<br/>"
   );
 }
 
-//Buttonfunktionen
-async function buttonFunctionalities(_option: string): Promise<void> {
-  console.log(_option);
-  switch (_option) {
-    //Speichern
-    case inGameMenu.save:
-      await ƒS.Progress.save();
-      break;
-    //Laden
-    case inGameMenu.load:
-      await ƒS.Progress.load();
-      break;
-    //Sound lauter
-    case inGameMenu.volumeup:
-      incrementSound();
-      break;
-    //Sound leiser
-    case inGameMenu.volumedown:
-      decrementSound();
-      break;
-    // case inGameMenu.inventar:
-    //     const selectedItems:string[] = await ƒS.Inventory.open();
-    //     if(selectedItems && selectedItems.length > 0){
-    //       selectedItems.forEach((s)=>{
-    //         Object.keys(items).forEach((i)=>{
-    //           const item = items[i];
-    //           if(item.name === s){
-    //             ƒS.Inventory.add(item);
-    //           }
-    //         })
-    //       })
-    //     }
-    //     break;
-    //Credits
-    case inGameMenu.credits:
-      showCredits();
-      break;
-  }
-}
-  //Menü standardmäßig an = true. Standardmäßig aus = false
-let menu: boolean = false;
 
-//Shortcuts fürs Menu
-document.addEventListener("keydown", hndKeyPress);
-export async function hndKeyPress(_event: KeyboardEvent): Promise<any> {
-   switch (_event.code) {
-     case ƒ.KEYBOARD_CODE.F8:
-       console.log("Save");
-       await ƒS.Progress.save();
-       break;
-     case ƒ.KEYBOARD_CODE.F9:
-       console.log("Load");
-       await ƒS.Progress.load();
-       break;
-     case ƒ.KEYBOARD_CODE.M:
-       if (menu) {
-         console.log("Close");
-         gameMenu.close();
-         menu = false;
-       } else {
-         console.log("Open");
-         gameMenu.open();
-         menu = true;
-       }
-       break;
-      case ƒ.KEYBOARD_CODE.I:
-        //hier inventar öffnungsfunktion
-      console.log("Inventar");
- }
-}
- 
 
  console.log(1);
  window.addEventListener("load", start);
@@ -258,15 +345,18 @@ export async function hndKeyPress(_event: KeyboardEvent): Promise<any> {
   //Menu
   gameMenu = ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu");
 
-  //Szenen aufrufen bezogen auf die .TS Datei
+  //Szenen aufrufen bezogen auf die .TS Datei  // SZENE HINZUFP
   let scenes: ƒS.Scenes = [
     { id:"Szenenid",scene: Szene1, name: "Name" },
-    //{ scene: Szene2, name: "Szene2" },
+    {id:"Szene2",scene: Szene2, name: "Szene2" },
+    {id:"Szene3",scene: Szene3, name: "Szene3" },
+    {id:"Szene4",scene: Szene4, name: "Szene4" },
+    {id:"Szene5",scene: Szene5, name: "Szene5" },
+    
   ];
   let uiElement: HTMLElement = document.querySelector("[type=interface]");
   dataForSave = ƒS.Progress.setData(dataForSave, uiElement);
-  // start the sequence
-  // ƒS.Progress.setData(data);
+  
   ƒS.Progress.go(scenes);
 
 }
