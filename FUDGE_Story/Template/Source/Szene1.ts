@@ -1,7 +1,10 @@
 namespace Template {
   export async function Szene1(): ƒS.SceneReturn {
-    console.log("FudgeStory Template Scene1 starting");
-    //Gesprochener Text
+
+    ƒS.Sound.setMasterVolume(2);
+    await ƒS.Sound.fade(sound.ForestGumpy, 0.07, 0.1, true);
+    ƒS.Sound.play(sound.ForestGumpy, 1, false);
+
     let text = {
       Tsuki: {
         T0000: "hahhaa, ja, wir können tun und lassen, was wir wollen. Lass uns nur darauf achten, dass wir das Haus sauber halten bis Mama und Papa kommen.",
@@ -25,37 +28,22 @@ namespace Template {
       },
     };
 
- 
-    ƒS.Sound.setMasterVolume(2);
 
-    
-    //Sound einspielen
-    await ƒS.Sound.fade(sound.examplemusic, 0.07, 0.1, true); //Der Sound der in Main.ts definiert wurde
-    ƒS.Sound.play(sound.examplemusic, 1, false);
-    console.log("audio is being played");
-
-    //fade ist langsam einfaden, play ist direkt abspielen
- 
-
-  
-    ƒS.Location.show(locations.Hintergrund3); 
-    console.log("Background is being displayed");
+    ƒS.Location.show(locations.Hintergrund3);
     await ƒS.update(1);
 
+    await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(0, 100));
+    await ƒS.update(1);
 
-   
-   await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(0,100)); 
-
-   
-   await ƒS.update(1);
-
-
-
-    //Satzbau
-    await ƒS.Speech.tell(characters.Taiyō, text.Taiyō.T0000, true);   
+    await ƒS.Speech.tell(characters.Taiyō, text.Taiyō.T0000, true);
     await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0000, true);
     await ƒS.Speech.tell(characters.Taiyō, text.Taiyō.T0001, true);
     await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0001, true);
+
+    await ƒS.Sound.fade(sound.Rusalki, 0.07, 0.1, true);
+    ƒS.Sound.play(sound.Rusalki, 1, false);
+    console.log("audio is being played");
+
     await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0002, true);
     await ƒS.Speech.tell(characters.Taiyō, text.Taiyō.T0003, true);
     await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0003, true);
@@ -64,20 +52,17 @@ namespace Template {
     ƒS.Inventory.add(items.Apfel);
     console.log(items);
 
-  await ƒS.Character.hide(characters.Tsuki);
-  await ƒS.update(2);
+    await ƒS.Character.hide(characters.Tsuki);
+    await ƒS.update(2);
 
-  ƒS.Location.show(locations.Hintergrund5); 
-  console.log("Background is being displayed");
-  await ƒS.update(1);
-  
-  
-  await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(0,100)); 
-  await ƒS.update(3);
-    
- 
+    ƒS.Location.show(locations.Hintergrund5);
+    await ƒS.update(1);
+    await ƒS.Sound.fade(sound.Rusalki, 0.10, 0.1, true);
+    ƒS.Sound.play(sound.Rusalki, 1, false);
+    console.log("audio is being played");
 
-
+    await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(0, 100));
+    await ƒS.update(3);
 
     await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0005, true);
     await ƒS.Speech.tell(characters.Taiyō, text.Taiyō.T0005, true);
@@ -88,23 +73,17 @@ namespace Template {
     await ƒS.update(1);
 
     await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0009, true);
- 
+
     await ƒS.Character.hide(characters.Tsuki);
-    ƒS.Location.show(locations.Blackscreen); 
+    ƒS.Location.show(locations.Blackscreen);
     await ƒS.update(0);
-    await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.transiotions, ƒS.positionPercent(0,100)); 
+    await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.transiotions, ƒS.positionPercent(0, 100));
     await ƒS.update(3);
 
-    //Sound ausblenden
-    ƒS.Sound.fade(sound.examplemusic, 0, 0.8, true);
-    //Character verstecken
+    ƒS.Sound.fade(sound.Rusalki, 0, 0.8, true);
     ƒS.Character.hideAll();
-
-    //Text verstecken
     ƒS.Speech.hide();
-    ƒS.update(1);
+    await ƒS.update(1);
 
-    //Bestimmte Szene spielen, in Abhängigkeit von der Entscheidung des Spielers
-    //HINTERGRUND WEISS + TRANSITION BILD
   }
 }

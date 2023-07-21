@@ -113,6 +113,9 @@ export let items = {
  export let sound = {
   //music 
   examplemusic: "./Ressources/Audio/Audio_01.wav",
+  Shoreee: "./Ressources/Audio/shore.wav",
+  ForestGumpy: "./Ressources/Audio/Forest.wav",
+  Rusalki: "./Ressources/Audio/Choir.wav",
  };
 
  //Backgrounds
@@ -161,6 +164,16 @@ export let items = {
   Jorogumosleepingroom: {
     name: "JorogumoSleeping",
     background: "./Ressources/Background1/Jorogumosleep.png",
+  },
+
+  CS1: {
+    name: "JorogumoCS",
+    background: "./Ressources/Background1/CS1.png",
+  },
+
+  CS2: {
+    name: "RusalkaCS",
+    background: "./Ressources/Background1/CS2.png",
   },
 
   RusalkaShore: {
@@ -347,10 +360,10 @@ export function showCredits(): void {
 
   //Szenen aufrufen bezogen auf die .TS Datei  // SZENE HINZUFP
   let scenes: ƒS.Scenes = [
-    { id:"Szenenid",scene: Szene1, name: "Name" },
-    {id:"Szene2",scene: Szene2, name: "Szene2" },
-    {id:"Szene3",scene: Szene3, name: "Szene3" },
-    {id:"Szene4",scene: Szene4, name: "Szene4" },
+ { id:"Szenenid",scene: Szene1, name: "Name" },
+  {id:"Szene2",scene: Szene2, name: "Szene2" },
+  {id:"Szene3",scene: Szene3, name: "Szene3" },
+  {id:"Szene4",scene: Szene4, name: "Szene4" },
     {id:"Szene5",scene: Szene5, name: "Szene5" },
     
   ];

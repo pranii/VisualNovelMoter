@@ -40,8 +40,8 @@ namespace Template {
           let EntscheidungsnamenElement = await ƒS.Menu.getInput(Entscheidungsname, "auswahl");
           switch (EntscheidungsnamenElement) {
             case Entscheidungsname.option1:
-              await ƒS.Character.animate(characters.Taiyō, characters.Taiyō.pose.standard, fromCenterToCenter());
-              await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(0,100)); 
+
+              await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.determined, ƒS.positionPercent(0,100)); 
           await ƒS.update(1);
           await ƒS.Speech.tell(characters.Taiyō, text.Taiyō.T0000, true);   
           
@@ -57,10 +57,10 @@ namespace Template {
           
           await ƒS.Character.hide(characters.Jorogumo);
           await ƒS.update(0);
-          await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(0,100)); 
+          await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.determined, ƒS.positionPercent(0,100)); 
           await ƒS.update(0);
 
-          await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(0,100)); 
+          await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.determined, ƒS.positionPercent(0,100)); 
           await ƒS.update(1);
           await ƒS.Speech.tell(characters.Taiyō, text.Taiyō.T0001, true);   
           
@@ -76,7 +76,7 @@ namespace Template {
 
           await ƒS.Character.hide(characters.Jorogumo);
           await ƒS.update(0);
-          await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.standard, ƒS.positionPercent(0,100)); 
+          await ƒS.Character.show(characters.Tsuki, characters.Tsuki.pose.determined, ƒS.positionPercent(0,100)); 
           await ƒS.update(0);
 
           await ƒS.Speech.tell(characters.Taiyō, text.Taiyō.T0002, true);   

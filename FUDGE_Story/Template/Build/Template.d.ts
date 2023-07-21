@@ -26,6 +26,9 @@ declare namespace Template {
     };
     let sound: {
         examplemusic: string;
+        Shoreee: string;
+        ForestGumpy: string;
+        Rusalki: string;
     };
     let locations: {
         Hintergrund1: {
@@ -65,6 +68,14 @@ declare namespace Template {
             background: string;
         };
         Jorogumosleepingroom: {
+            name: string;
+            background: string;
+        };
+        CS1: {
+            name: string;
+            background: string;
+        };
+        CS2: {
             name: string;
             background: string;
         };
@@ -138,17 +149,15 @@ declare namespace Template {
     let dataForSave: {
         points: number;
         gesprochen: {
-            marie: boolean;
-            james: boolean;
-            violet: boolean;
-            luna: boolean;
+            Rusalka: boolean;
+            Jorogumo: boolean;
+            Taiyo: boolean;
+            Tsuki: boolean;
         };
         beispielwert: number;
         beispielbool: boolean;
         evil: number;
         good: number;
-        crazy: number;
-        calm: number;
     };
     function incrementSound(): void;
     function decrementSound(): void;

@@ -20,34 +20,36 @@ canvas {
   height: 100%;
 }
 
-/* Textbox */
-
 speech {
   position: absolute;
-  padding: 20px;
-  font-size: 16px;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 25px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  font-size: 12px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background-color: #D3E0D0; /* Gameboy border color */
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  color: #000;
 }
+
 .disable-select {
   user-select: none; /* supported by Chrome and Opera */
- -webkit-user-select: none; /* Safari */
- -khtml-user-select: none; /* Konqueror HTML */
- -moz-user-select: none; /* Firefox */
- -ms-user-select: none; /* Internet Explorer/Edge */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
 }
+
 name {
-  font-size: 17pt;
+  font-size: 12px;
   font-weight: bold;
   display: block;
-  color: rgb(0,0,0);
-  margin-bottom: 10px;
+  color: #000;
+  margin-bottom: 5px;
 }
-.auswahl{
+
+.auswahl {
   position: absolute;
   width: fit-content;
   height: fit-content;
@@ -61,16 +63,16 @@ name {
   text-align: center;
 }
 
-.auswahl button{
+.auswahl button {
   font-family: 'Helvetica Neue', sans-serif;
   text-align: center;
   border: none;
   color: #333;
   outline: none;
-  font-size: 14px;
-  padding: 15px 25px;
-  margin: 15px;
-  cursor:pointer;
+  font-size: 10px;
+  padding: 8px 15px;
+  margin: 8px;
+  cursor: pointer;
   outline: none;
   background-color: transparent;
   border: 2px solid #333;
@@ -79,12 +81,12 @@ name {
   display: inline-block;
 }
 
-.auswahl:hover{
+.auswahl:hover {
   border-color: #333;
   box-shadow: 2px 2px 5px #fff;
 }
 
-.auswahl button:hover{
+.auswahl button:hover {
   background-color: #333;
   color: #fff;
   border-color: #fff;
@@ -94,27 +96,28 @@ name {
 speech input {
   background-color: rgba(0, 0, 0, 0);
   border-style: dashed;
-  margin-left: 10px;
-  /*border-color: rgb(0, 128, 128);*/
-  color: rgb(245, 220, 220);
+  margin-left: 5px;
+  color: #000;
   font-family: 'Press Start 2P', cursive;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  font-size: 12pt;
-
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  font-size: 8px;
 }
-speech input:focus{
+
+speech input:focus {
   outline: none;
 }
-speech input:hover{
+
+speech input:hover {
   border-color: rgb(251, 251, 251);
   transition: all .4s ease;
   -webkit-transition: all .4s ease;
 }
+
 /* Novel Page */
 
-.novel-page{
+.novel-page {
   background-color: rgba(43, 43, 43, 0.8);
   border: beige;
   color: beige;
@@ -125,7 +128,7 @@ speech input:hover{
 .credits {
   text-align: center;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: rgba(43, 43, 43, 0.8);
   color: beige;
 }
@@ -137,25 +140,27 @@ speech input:hover{
 }
 
 .gameMenu button {
-border: none;
-outline: none;
-cursor: default;
-background-color: #0000;
-color: beige;
-font-size: 15px;
-cursor:pointer
+  border: none;
+  outline: none;
+  cursor: default;
+  background-color: #0000;
+  color: beige;
+  font-size: 8px;
+  cursor: pointer;
 }
 
 /* Inventar */
 
 dialog[type="inventory"] {
-  color: rgb(0, 0, 0);
+  color: #000;
   width: 50%;
-  border: 2px solid;
-  background-color: rgb(255, 255, 255);
+  border: 2px solid #333;
+  background-color: #D3E0D0; /* Gameboy border color */
   font-family: 'KoHo', sans-serif;
 }
 
-dialog[type="inventory"]>ul>li img, dialog[type="inventory"]>ul>li name, dialog[type="inventory"]>ul>li description{
-width: 15%;
+dialog[type="inventory"] > ul > li img,
+dialog[type="inventory"] > ul > li name,
+dialog[type="inventory"] > ul > li description {
+  width: 15%;
 }

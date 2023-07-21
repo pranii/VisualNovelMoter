@@ -104,6 +104,9 @@ var Template;
     Template.sound = {
         //music 
         examplemusic: "./Ressources/Audio/Audio_01.wav",
+        Shoreee: "./Ressources/Audio/shore.wav",
+        ForestGumpy: "./Ressources/Audio/Forest.wav",
+        Rusalki: "./Ressources/Audio/Choir.wav",
     };
     //Backgrounds
     Template.locations = {
@@ -146,6 +149,14 @@ var Template;
         Jorogumosleepingroom: {
             name: "JorogumoSleeping",
             background: "./Ressources/Background1/Jorogumosleep.png",
+        },
+        CS1: {
+            name: "JorogumoCS",
+            background: "./Ressources/Background1/CS1.png",
+        },
+        CS2: {
+            name: "RusalkaCS",
+            background: "./Ressources/Background1/CS2.png",
         },
         RusalkaShore: {
             name: "RusalkaShore",
@@ -261,17 +272,15 @@ var Template;
         //Hier Speicherbare Elemente eintragen
         points: 0,
         gesprochen: {
-            marie: false,
-            james: false,
-            violet: false,
-            luna: false
+            Rusalka: false,
+            Jorogumo: false,
+            Taiyo: false,
+            Tsuki: false
         },
         beispielwert: 0,
         beispielbool: false,
         evil: 0,
         good: 0,
-        crazy: 0,
-        calm: 0,
     };
     let volume = 5.0;
     //Sound lauter machen
@@ -313,17 +322,14 @@ var Template;
         Template.gameMenu = Template.ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu");
         //Szenen aufrufen bezogen auf die .TS Datei  // SZENE HINZUFP
         let scenes = [
-            // { id:"Szenenid",scene: Szene1, name: "Name" },
-            // {id:"Szene2",scene: Szene2, name: "Szene2" },
-            // {id:"Szene3",scene: Szene3, name: "Szene3" },
-            // {id:"Szene4",scene: Szene4, name: "Szene4" },
+            { id: "Szenenid", scene: Template.Szene1, name: "Name" },
+            { id: "Szene2", scene: Template.Szene2, name: "Szene2" },
+            { id: "Szene3", scene: Template.Szene3, name: "Szene3" },
+            { id: "Szene4", scene: Template.Szene4, name: "Szene4" },
             { id: "Szene5", scene: Template.Szene5, name: "Szene5" },
-            //{ scene: Szene2, name: "Szene2" }, // Datei: bei Source
         ];
         let uiElement = document.querySelector("[type=interface]");
         Template.dataForSave = Template.ƒS.Progress.setData(Template.dataForSave, uiElement);
-        // start the sequence
-        // ƒS.Progress.setData(data);
         Template.ƒS.Progress.go(scenes);
     }
 })(Template || (Template = {}));
@@ -363,8 +369,7 @@ var Template;
         let EntscheidungsnamenElement = await Template.ƒS.Menu.getInput(Entscheidungsname, "auswahl");
         switch (EntscheidungsnamenElement) {
             case Entscheidungsname.option1:
-                await Template.ƒS.Character.animate(Template.characters.Taiyō, Template.characters.Taiyō.pose.standard, Template.fromCenterToCenter());
-                await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.standard, Template.ƒS.positionPercent(0, 100));
+                await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.determined, Template.ƒS.positionPercent(0, 100));
                 await Template.ƒS.update(1);
                 await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0000, true);
                 await Template.ƒS.Character.hide(Template.characters.Tsuki);
@@ -376,9 +381,9 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0003, true);
                 await Template.ƒS.Character.hide(Template.characters.Jorogumo);
                 await Template.ƒS.update(0);
-                await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.standard, Template.ƒS.positionPercent(0, 100));
+                await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.determined, Template.ƒS.positionPercent(0, 100));
                 await Template.ƒS.update(0);
-                await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.standard, Template.ƒS.positionPercent(0, 100));
+                await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.determined, Template.ƒS.positionPercent(0, 100));
                 await Template.ƒS.update(1);
                 await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0001, true);
                 await Template.ƒS.Character.hide(Template.characters.Tsuki);
@@ -392,7 +397,7 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0008, true);
                 await Template.ƒS.Character.hide(Template.characters.Jorogumo);
                 await Template.ƒS.update(0);
-                await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.standard, Template.ƒS.positionPercent(0, 100));
+                await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.determined, Template.ƒS.positionPercent(0, 100));
                 await Template.ƒS.update(0);
                 await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0002, true);
                 await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0003, true);
@@ -426,8 +431,9 @@ var Template;
 var Template;
 (function (Template) {
     async function Szene1() {
-        console.log("FudgeStory Template Scene1 starting");
-        //Gesprochener Text
+        Template.ƒS.Sound.setMasterVolume(2);
+        await Template.ƒS.Sound.fade(Template.sound.ForestGumpy, 0.07, 0.1, true);
+        Template.ƒS.Sound.play(Template.sound.ForestGumpy, 1, false);
         let text = {
             Tsuki: {
                 T0000: "hahhaa, ja, wir können tun und lassen, was wir wollen. Lass uns nur darauf achten, dass wir das Haus sauber halten bis Mama und Papa kommen.",
@@ -450,22 +456,17 @@ var Template;
                 T0006: "TSUKIII!! HILFE!!! ICH SEHE NICHTS MEHR.",
             },
         };
-        Template.ƒS.Sound.setMasterVolume(2);
-        //Sound einspielen
-        await Template.ƒS.Sound.fade(Template.sound.examplemusic, 0.07, 0.1, true); //Der Sound der in Main.ts definiert wurde
-        Template.ƒS.Sound.play(Template.sound.examplemusic, 1, false);
-        console.log("audio is being played");
-        //fade ist langsam einfaden, play ist direkt abspielen
         Template.ƒS.Location.show(Template.locations.Hintergrund3);
-        console.log("Background is being displayed");
         await Template.ƒS.update(1);
         await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.standard, Template.ƒS.positionPercent(0, 100));
         await Template.ƒS.update(1);
-        //Satzbau
         await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0000, true);
         await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0000, true);
         await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0001, true);
         await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0001, true);
+        await Template.ƒS.Sound.fade(Template.sound.Rusalki, 0.07, 0.1, true);
+        Template.ƒS.Sound.play(Template.sound.Rusalki, 1, false);
+        console.log("audio is being played");
         await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0002, true);
         await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0003, true);
         await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0003, true);
@@ -475,8 +476,10 @@ var Template;
         await Template.ƒS.Character.hide(Template.characters.Tsuki);
         await Template.ƒS.update(2);
         Template.ƒS.Location.show(Template.locations.Hintergrund5);
-        console.log("Background is being displayed");
         await Template.ƒS.update(1);
+        await Template.ƒS.Sound.fade(Template.sound.Rusalki, 0.10, 0.1, true);
+        Template.ƒS.Sound.play(Template.sound.Rusalki, 1, false);
+        console.log("audio is being played");
         await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.standard, Template.ƒS.positionPercent(0, 100));
         await Template.ƒS.update(3);
         await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0005, true);
@@ -492,40 +495,35 @@ var Template;
         await Template.ƒS.update(0);
         await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.transiotions, Template.ƒS.positionPercent(0, 100));
         await Template.ƒS.update(3);
-        //Sound ausblenden
-        Template.ƒS.Sound.fade(Template.sound.examplemusic, 0, 0.8, true);
-        //Character verstecken
+        Template.ƒS.Sound.fade(Template.sound.Rusalki, 0, 0.8, true);
         Template.ƒS.Character.hideAll();
-        //Text verstecken
         Template.ƒS.Speech.hide();
-        Template.ƒS.update(1);
-        //Bestimmte Szene spielen, in Abhängigkeit von der Entscheidung des Spielers
-        //HINTERGRUND WEISS + TRANSITION BILD
+        await Template.ƒS.update(1);
     }
     Template.Szene1 = Szene1;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
     async function Szene2() {
+        // Soundeinstellungen
         Template.ƒS.Sound.setMasterVolume(2);
-        await Template.ƒS.Sound.fade(Template.sound.examplemusic, 0.07, 0.1, true); //Der Sound der in Main.ts definiert wurde
-        Template.ƒS.Sound.play(Template.sound.examplemusic, 1, false);
-        console.log("audio is being played");
-        Template.ƒS.Location.show(Template.locations.Forest1); //Location initialisieren die in Main.ts definiert wurden
-        console.log("Background is being displayed");
-        await Template.ƒS.update(1);
+        await Template.ƒS.Sound.fade(Template.sound.ForestGumpy, 0.07, 0.1, true);
+        Template.ƒS.Sound.play(Template.sound.ForestGumpy, 1, false);
+        // Dialogtexte
         let text = {
             Taiyō: {
                 T0000: "Wo...Wo sind wir hier?",
                 T0001: "... lass uns erstmal nach Hinweisen suchen.",
-                T0002: "Wir finden bald raus, wo wir sind. wo sollen wir schon sein, hahaha..-",
-                T0003: "Monolog: ich will gar nicht wissen was das ist. wir dürfen dieser Frau nicht das Gefühl geben, dass wir ihr nicht vertrauen.... Warum sind hier überhaupt so viele Spinnenweben?.. und... wer ist sie?",
+                T0002: "Wir finden bald raus, wo wir sind. Wo sollen wir schon sein, hahaha...",
+                T0003: "Monolog: Ich will gar nicht wissen, was das ist. Wir dürfen dieser Frau nicht das Gefühl geben, dass wir ihr nicht vertrauen.... Warum sind hier überhaupt so viele Spinnenweben?... Und... wer ist sie?",
                 T0004: "Hier sieht es sehr gemütlich aus. Danke für deine Gastfreundschaft.",
                 T0005: "",
-                T0006: "Ich weiß nicht wo wir gelandet sind. Wir sind einem Geräusch gefolgt und jetzt sind wir hier gefangen. Wir wollen nach Hause.",
+                T0006: "Ich weiß nicht, wo wir gelandet sind. Wir sind einem Geräusch gefolgt und jetzt sind wir hier gefangen. Wir wollen nach Hause.",
             },
             Tsuki: {
-                T0000: "Ich hab Angst. Wo sind wir?",
+                T0000: "AHHH WARUM BIST DU EIN JUNGE?",
+                T0004: "WARUM BIN ICH EIN JUNGE?",
+                T0005: "HILFE",
                 T0001: "Danke",
                 T0006: "Ich will nach Hause!! Hier ist alles gruselig und ich will nach Hause! Wir haben Sturmfrei und wir haben sonst nie Sturmfrei!!",
             },
@@ -534,14 +532,19 @@ var Template;
                 T0001: "Was macht ihr hier? Wo sind eure Eltern? Sollte man so süße kleine Wesen alleine draußen herumlaufen lassen?",
                 T0003: "Ach... so ist das also.",
                 T0004: "Ihr seht erschöpft aus.",
-                T0005: "Kommt mit mir mit. Ruht euch in meinem Gästezimmer aus",
+                T0005: "Kommt mit mir mit. Ruht euch in meinem Gästezimmer aus.",
                 T0006: "Schlaft jetzt erstmal ein wenig. Wir reden später weiter. Wir finden einen Weg, wie ihr zurück in eure Welt gelangt.",
             },
         };
+        // Szenen- und Charakteranzeige
+        Template.ƒS.Location.show(Template.locations.Forest1);
+        await Template.ƒS.update(1);
         await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.anxious, Template.ƒS.positionPercent(0, 100));
         await Template.ƒS.update(1);
         await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0000, true);
         await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0000, true);
+        await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0004, true);
+        await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0005, true);
         await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0001, true);
         await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0002, true);
         await Template.ƒS.Character.hide(Template.characters.Tsuki);
@@ -550,9 +553,7 @@ var Template;
         await Template.ƒS.update(1);
         await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0000, true);
         await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0001, true);
-        await Template.ƒS.Character.hide(Template.characters.Jorogumo);
-        await Template.ƒS.Character.show(Template.characters.Jorogumo, Template.characters.Jorogumo.pose.standard, Template.ƒS.positionPercent(0, 100));
-        await Template.ƒS.update(2);
+        // Entscheidungspunkt
         let Entscheidungsname = {
             option1: "Lasse Taiyō antworten",
             option2: "Lasse Tsuki antworten",
@@ -584,8 +585,7 @@ var Template;
         await Template.ƒS.update(0);
         await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.friendly, Template.ƒS.positionPercent(0, 100));
         Template.ƒS.Location.show(Template.locations.Jorogumosleepingroom);
-        console.log("Background is being displayed");
-        await Template.ƒS.update(0);
+        await Template.ƒS.update();
         await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0004, true);
         await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0001, true);
         await Template.ƒS.update(1);
@@ -593,14 +593,17 @@ var Template;
         await Template.ƒS.update(1);
         await Template.ƒS.Character.show(Template.characters.Jorogumo, Template.characters.Jorogumo.pose.standard, Template.ƒS.positionPercent(0, 100));
         await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0006, true);
-        Template.ƒS.Sound.fade(Template.sound.examplemusic, 0, 0.8, true);
-        //Character verstecken
-        Template.ƒS.Character.hideAll();
-        //Text verstecken
-        Template.ƒS.Speech.hide();
-        Template.ƒS.update(1);
-        Template.ƒS.Location.show(Template.locations.Blackscreen);
+        await Template.ƒS.Character.hide(Template.characters.Jorogumo);
         await Template.ƒS.update(0);
+        Template.ƒS.Location.show(Template.locations.CS1);
+        console.log("Background is being displayed");
+        await Template.ƒS.update(0);
+        await Template.ƒS.update(3);
+        // Abschluss der Szene
+        Template.ƒS.Sound.fade(Template.sound.ForestGumpy, 0, 0.8, true);
+        Template.ƒS.Character.hideAll();
+        Template.ƒS.Speech.hide();
+        await Template.ƒS.update(1);
     }
     Template.Szene2 = Szene2;
 })(Template || (Template = {}));
@@ -608,12 +611,9 @@ var Template;
 (function (Template) {
     async function Szene4() {
         Template.ƒS.Sound.setMasterVolume(2);
-        await Template.ƒS.Sound.fade(Template.sound.examplemusic, 0.07, 0.1, true); //Der Sound der in Main.ts definiert wurde
-        Template.ƒS.Sound.play(Template.sound.examplemusic, 1, false);
+        await Template.ƒS.Sound.fade(Template.sound.Shoreee, 0.07, 0.1, true);
+        Template.ƒS.Sound.play(Template.sound.Shoreee, 1, false);
         console.log("audio is being played");
-        Template.ƒS.Location.show(Template.locations.Forest2); //Bild + Text + daraufhin Hintergrund
-        console.log("Background is being displayed");
-        await Template.ƒS.update(1);
         let text = {
             Taiyō: {
                 T0000: "Lass uns ihr folgen.",
@@ -644,11 +644,14 @@ var Template;
                 T0009: "Niemand darf erfahren, dass ihr dieses Amulett besitzt. Ich  muss hier schnell weg. Viel Glück!",
             },
         };
-        /// Lessego
-        //Twins reden
+        Template.ƒS.Location.show(Template.locations.Forest2);
+        console.log("Background is being displayed");
+        await Template.ƒS.update(2);
         Template.ƒS.Location.show(Template.locations.Forest1);
         console.log("Background is being displayed");
         await Template.ƒS.update(0);
+        await Template.ƒS.Sound.fade(Template.sound.Rusalki, 0.07, 0.1, true);
+        Template.ƒS.Sound.play(Template.sound.Rusalki, 1, false);
         await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.friendly, Template.ƒS.positionPercent(0, 100));
         await Template.ƒS.update(0);
         await Template.ƒS.Character.hide(Template.characters.Rusalka);
@@ -702,13 +705,18 @@ var Template;
         await Template.ƒS.update(0);
         await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Taiyō.T0004, true);
         await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Taiyō.T0005, true);
-        //Twins reden
-        await Template.ƒS.Character.hide(Template.characters.Rusalka);
-        await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.friendly, Template.ƒS.positionPercent(0, 100));
+        // Abschluss der Szene
+        await Template.ƒS.Character.hideAll();
+        Template.ƒS.Location.show(Template.locations.CS2);
+        console.log("Background is being displayed");
         await Template.ƒS.update(0);
-        Template.ƒS.Sound.fade(Template.sound.examplemusic, 0, 0.8, true);
-        //Character verstecken
+        await Template.ƒS.update(3);
+        Template.ƒS.Sound.fade(Template.sound.ForestGumpy, 0, 0.8, true);
         Template.ƒS.Character.hideAll();
+        Template.ƒS.Speech.hide();
+        await Template.ƒS.update(1);
+        Template.ƒS.Sound.fade(Template.sound.Shoreee, 0, 0.8, true);
+        //Character verstecken
         //Text verstecken
         Template.ƒS.Speech.hide();
         Template.ƒS.update(1);
@@ -721,10 +729,10 @@ var Template;
 (function (Template) {
     async function Szene5() {
         Template.ƒS.Sound.setMasterVolume(2);
-        await Template.ƒS.Sound.fade(Template.sound.examplemusic, 0.07, 0.1, true); //Der Sound der in Main.ts definiert wurde
-        Template.ƒS.Sound.play(Template.sound.examplemusic, 1, false);
+        await Template.ƒS.Sound.fade(Template.sound.Shoreee, 0.07, 0.1, true);
+        Template.ƒS.Sound.play(Template.sound.Shoreee, 1, false);
         console.log("audio is being played");
-        Template.ƒS.Location.show(Template.locations.Hintergrund3); //Bild + Text + daraufhin Hintergrund
+        Template.ƒS.Location.show(Template.locations.Hintergrund3);
         console.log("Background is being displayed");
         await Template.ƒS.update(1);
         let text = {
@@ -756,43 +764,35 @@ var Template;
                 T0005: "IHR KÖNNT MICH NICHT ANLÜGEN WUAHAHAHHA HAA",
                 T0006: "ENDLICH!!! SO VIEL MACHT WUHAAHAHAH DIE WERDEN ES NOCH BEREUEN",
                 T0007: "ICH AUCH NICHT. MAN DARF HIER NIEMANDEM VERTRAUEN.",
-                //Entscheidung
                 T0008: "Ihr würdet mich wirklich mitnehmen?",
-                T0009: "Hier in unserer Dimension herrscht seit vielen Jahren ungleichgewicht. Niemand ist glücklich.",
+                T0009: "Hier in unserer Dimension herrscht seit vielen Jahren Ungleichgewicht. Niemand ist glücklich.",
                 T0010: "SO EINFACH IST DAS NICHT. ICH BIN NUR EIN INSEKT. DIE ANDEREN TRAUEN MIR NICHT.",
                 T0011: "Ich habe noch nie Menschen wie euch gesehen. Ihr müsst die Kinder aus der Prophezeiung sein.",
                 T0012: "Ihr habt mir eine neue Sicht auf die Situation geschenkt. Ich habe zu danken. Bitte kehrt zurück in eure Welt. Eure Eltern vermissen euch sicher schon",
-                //schlechtes Ende
                 T0013: "HAHHAHAHAH HER MIT DEM AMULETT.",
                 T0014: "IHR WERDET FÜR IMMER MEIN SEIN.",
                 T0015: "HAHHAHAHAHAHAHA",
             },
         };
-        Template.ƒS.Location.show(Template.locations.Forest2);
+        Template.ƒS.Location.show(Template.locations.Felsentag);
         console.log("Background is being displayed");
         await Template.ƒS.update(1);
         await Template.ƒS.Character.show(Template.characters.Jorogumo, Template.characters.Jorogumo.pose.standard, Template.ƒS.positionPercent(0, 100));
         await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0001, true);
-        Template.ƒS.Location.show(Template.locations.Felsentag);
-        console.log("Background is being displayed");
-        await Template.ƒS.update(1);
         await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0021, true);
         await Template.ƒS.Character.hide(Template.characters.Jorogumo);
-        await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.friendly, Template.ƒS.positionPercent(0, 100));
+        await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.anxious, Template.ƒS.positionPercent(0, 100));
         await Template.ƒS.update(0);
         await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Taiyō.T0000, true);
         await Template.ƒS.Character.hide(Template.characters.Tsuki);
         await Template.ƒS.update(1);
         await Template.ƒS.Character.show(Template.characters.Jorogumo, Template.characters.Jorogumo.pose.standard, Template.ƒS.positionPercent(0, 100));
         await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0022, true);
-        // await ƒS.Speech.tell(characters.Tsuki, text.Tsuki.T0000, true);  
-        // await ƒS.Speech.tell(characters.Tsuki, text.Taiyō.T0005, true); 
-        // await ƒS.Speech.tell(characters.Jorogumo, text.Jorogumo.T0009, true);
         await Template.ƒS.Character.hide(Template.characters.Tsuki);
         await Template.ƒS.update(1);
         await Template.ƒS.Character.show(Template.characters.Jorogumo, Template.characters.Jorogumo.pose.standard, Template.ƒS.positionPercent(0, 100));
         await Template.ƒS.Character.hide(Template.characters.Jorogumo);
-        await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.friendly, Template.ƒS.positionPercent(0, 100));
+        await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.anxious, Template.ƒS.positionPercent(0, 100));
         await Template.ƒS.update(0);
         let Entscheidungsname = {
             option1: "Sage die Wahrheit.",
@@ -801,13 +801,11 @@ var Template;
         let EntscheidungsnamenElement = await Template.ƒS.Menu.getInput(Entscheidungsname, "auswahl");
         switch (EntscheidungsnamenElement) {
             case Entscheidungsname.option1:
-                await Template.ƒS.Character.hide(Template.characters.Tsuki);
                 await Template.ƒS.Character.hide(Template.characters.Jorogumo);
                 await Template.ƒS.update(0);
                 await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.anxious, Template.ƒS.positionPercent(0, 100));
                 await Template.ƒS.update(0);
                 await Template.ƒS.Speech.tell(Template.characters.Taiyō, text.Taiyō.T0002, true);
-                await Template.ƒS.Character.hide(Template.characters.Taiyō);
                 await Template.ƒS.Character.hide(Template.characters.Tsuki);
                 await Template.ƒS.update(0);
                 await Template.ƒS.Character.show(Template.characters.Jorogumo, Template.characters.Jorogumo.pose.transition1, Template.ƒS.positionPercent(0, 100));
@@ -885,26 +883,12 @@ var Template;
             case Entscheidungsname.option2:
                 await Template.ƒS.Character.hide(Template.characters.Jorogumo);
                 await Template.ƒS.Character.show(Template.characters.Tsuki, Template.characters.Tsuki.pose.anxious, Template.ƒS.positionPercent(0, 100));
-                await Template.ƒS.Character.hide(Template.characters.Tsuki);
-                await Template.ƒS.update(0);
                 await Template.ƒS.Speech.tell(Template.characters.Tsuki, text.Tsuki.T0000, true);
-                await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0020, true);
-                await Template.ƒS.update(1);
                 await Template.ƒS.Character.hide(Template.characters.Tsuki);
-                await Template.ƒS.update(2);
-                await Template.ƒS.Character.hide(Template.characters.Taiyō);
-                await Template.ƒS.Character.hide(Template.characters.Tsuki);
-                await Template.ƒS.update(0);
                 await Template.ƒS.Character.show(Template.characters.Jorogumo, Template.characters.Jorogumo.pose.transition1, Template.ƒS.positionPercent(0, 100));
-                await Template.ƒS.update(1);
+                await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0020, true);
                 await Template.ƒS.Character.hide(Template.characters.Jorogumo);
-                await Template.ƒS.update(0);
                 await Template.ƒS.Character.show(Template.characters.Jorogumo, Template.characters.Jorogumo.pose.transition2, Template.ƒS.positionPercent(0, 100));
-                await Template.ƒS.update(1);
-                await Template.ƒS.Character.hide(Template.characters.Jorogumo);
-                await Template.ƒS.update(0);
-                await Template.ƒS.Character.show(Template.characters.Jorogumo, Template.characters.Jorogumo.pose.transition3, Template.ƒS.positionPercent(0, 100));
-                await Template.ƒS.update(1);
                 await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0001, true);
                 await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0004, true);
                 await Template.ƒS.Speech.tell(Template.characters.Jorogumo, text.Jorogumo.T0005, true);
@@ -915,12 +899,12 @@ var Template;
                 await Template.ƒS.update(0);
                 break;
         }
-        Template.ƒS.Sound.fade(Template.sound.examplemusic, 0, 0.8, true);
+        Template.ƒS.Sound.fade(Template.sound.Shoreee, 0, 0.8, true);
         //Character verstecken
         Template.ƒS.Character.hideAll();
         //Text verstecken
         Template.ƒS.Speech.hide();
-        Template.ƒS.update(1);
+        await Template.ƒS.update(1);
     }
     Template.Szene5 = Szene5;
 })(Template || (Template = {}));
