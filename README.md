@@ -25,9 +25,9 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 | 9 | Animation      | Animationen können selbst definiert und auf Objekte angewendet werden. Wurden verschiedene Animationen bestimmt und kommen zur Verwendung?           |
 | 10 | Styling          | Werden <b>alle</b> relevanten Elemente mithilfe von CSS gestylt und wurden zweckmäßig benannt?                |
 | 11 | Creative Corner          | Umsetzung eines eigens konzipierten Alleinstellungsmerkmals (nach Absprache oder während der Konzeptvorstellungen)               |
-| 12 | Enden            | Wurden verschiedene Spielenden eingebaut (mind. zwei)?                       |
-|  A | Inventory- und Item-System     | Das Inventarsystem übernimmt das Management von hinzugefügten, konsumierbaren sowie nicht-konsumierbaren Items. Wird dieses System genutzt? Welche Items gibt es und was für Eigenschaften werden diesen zugeschrieben? Wozu existieren sie?|
-|  B | Punkteverteilungssystem     | Ein Punktesystem kann bei den unterschiedlichsten Situationen zum Einsatz kommen. So können Punkte vergeben, abgezogen, berechnet und das Ergebnis ausgewertet werden. Gibt es hierfür ein geregeltes Schema, das die Punkteverteilung für das Verhalten des Spielers festlegt oder ähnliche Regeln?             |
+| 12 | Enden            | 2 Enden                       |
+|  A | Inventory- und Item-System     | Nein|
+|  B | Punkteverteilungssystem     | Nein    |
 |  C | Novel-Pages             | _Novel-Pages_ können eingesetzt werden, um weitere Textelemente mit ggf. besonderen Interaktionsmöglichkeiten auszustatten und einzublenden. Wie wurden Novel Pages umgesetzt und welche Interaktionsmöglichkeiten gibt es?                       |
 |  D | Meter-bar             | Nein
 
