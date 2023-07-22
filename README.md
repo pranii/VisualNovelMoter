@@ -24,7 +24,7 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 |  8 | Input-Feld(er)          | Input-Felder können verwendet werden, damit man dem Spieler die Option bietet, mithilfe einer Eingabe interne Zustände zu verändern. Wird dem Spieler die Möglichkeit gegeben z. B. seinen Namen einzugeben und wird dieser im Verlauf der Story verwendet? Sind weitere Input-Felder eingesetzt worden? Zu welchem Zweck?              |
 | 9 | Animation      | Animationen können selbst definiert und auf Objekte angewendet werden. Wurden verschiedene Animationen bestimmt und kommen zur Verwendung?           |
 | 10 | Styling          | Werden <b>alle</b> relevanten Elemente mithilfe von CSS gestylt und wurden zweckmäßig benannt?                |
-| 11 | Creative Corner          | Umsetzung eines eigens konzipierten Alleinstellungsmerkmals (nach Absprache oder während der Konzeptvorstellungen)               |
+| 11 | Creative Corner          | Einsatz von Protagonisten aus Mythologien               |
 | 12 | Enden            | 2 Enden                       |
 |  A | Inventory- und Item-System     | Nein|
 |  B | Punkteverteilungssystem     | Nein    |
