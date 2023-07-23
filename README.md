@@ -16,7 +16,7 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 |  1 | Konzeption     | PDF                                                                                                                            |
 |  2 | Charaktersteckbriefe     | PDF                                                                                                                                                                                                |
 |  3 | Auswahlmöglichkeiten | PDF                                                                                                                                               |
-|  4 | Branching paths      PDF                                                                                                                                        |
+|  4 | Branching paths                                                                                                                                            |PDF  
 |  5 | Transitions           | Ja                 |
 |  6 |         Audio         | Jede Szenerie hat eigenen Sound                                         |
 |  7 |         GUI            | Ja     |
