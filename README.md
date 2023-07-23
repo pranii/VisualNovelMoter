@@ -13,10 +13,10 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 |    | Titel                 |  Moter |
 |    | Name                  |  Pranvera Pelaj |
 |    | Matrikelnummer        |  261210 |
-|  1 | Konzeption     | PDF                                                                                                                            |
-|  2 | Charaktersteckbriefe     | PDF                                                                                                                                                                                                |
-|  3 | Auswahlmöglichkeiten | PDF                                                                                                                                               |
-|  4 | Branching paths                                                                                                                                            |PDF  
+|  1 | Konzeption     | https://github.com/pranii/VisualNovelMoter/blob/main/DokumentationMoter.pdf                                                                                                                           |
+|  2 | Charaktersteckbriefe     | https://github.com/pranii/VisualNovelMoter/blob/main/DokumentationMoter.pdf                                                                                                                                                                                               |
+|  3 | Auswahlmöglichkeiten | https://github.com/pranii/VisualNovelMoter/blob/main/DokumentationMoter.pdf                                                                                                                                              |
+|  4 | Branching paths                                                                                                                                            |https://github.com/pranii/VisualNovelMoter/blob/main/DokumentationMoter.pdf 
 |  5 | Transitions           | Ja                 |
 |  6 |         Audio         | Jede Szenerie hat eigenen Sound    // Symbolsound bei zweitem Antagonisten                                     |
 |  7 |         GUI            | Ja     |
