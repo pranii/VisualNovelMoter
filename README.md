@@ -3,7 +3,6 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 
 
 # References
-- [APIs](https://jirkadelloro.github.io/FUDGE_Story/Documentation/Reference/#fudge-story-reference)
 - [Pages-Link](https://pranii.github.io/VisualNovelMoter/index.html)
 
 ## Bewertungskriterien
@@ -33,19 +32,3 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 
 
 
-##  Abgabeformat
-
-* Die vollständige Konzeption soll als .pdf-Dokument abgegeben werden.
-  * Das Konzept enthält:
-    * Decision-Tree-Diagrams
-    * Charaktersteckbriefe
-    * ggf. Scribbles, ein Drehbuch / eine Inhaltsangabe / ein Storyboard oder ähnlich
-    * Vermerk zu selbstproduzierten Inhalten
-* Platziere einen Link in der Readme-Datei deines VisualNovel-Repositories auf Github auf die fertige und in Github-Pages lauffähige Anwendung.
-* Platziere ebenso Links zu den Stellen in deinem Repository, an denen der Quellcode und das Konzept-Dokument zu finden sind.
-* Stelle zudem auf diese Art dort auch ein gepacktes Archiv <b>[Pelaj_Pranvera_Moter]</b> zur Verfügung, das folgende Daten enthält
-  * Das Konzept-Dokument 
-  * Die Projektordner inklusive aller erforderlichen Dateien, also auch Bild- und Audiodaten
-
-
-[^1]: siehe Punkt D "Meter-bar"
