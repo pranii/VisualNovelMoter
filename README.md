@@ -18,7 +18,7 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 |  3 | Auswahlmöglichkeiten | PDF                                                                                                                                               |
 |  4 | Branching paths                                                                                                                                            |PDF  
 |  5 | Transitions           | Ja                 |
-|  6 |         Audio         | Jede Szenerie hat eigenen Sound                                         |
+|  6 |         Audio         | Jede Szenerie hat eigenen Sound    // Symbolsound bei zweitem Antagonisten                                     |
 |  7 |         GUI            | Ja     |
 |  8 | Input-Feld(er)          | Nein              |
 | 9 | Animation      | Ja          |
