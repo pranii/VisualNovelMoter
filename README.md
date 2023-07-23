@@ -14,10 +14,10 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 |    | Titel                 |   |
 |    | Name                  |   |
 |    | Matrikelnummer        |   |
-|  1 | Konzeption     | [Klick](DokumentationMoterl.pdf)                                                                                                                            |
-|  2 | Charaktersteckbriefe     | [Klick](DokumentationMoterl.pdf)                                                                                                                                                                                                |
-|  3 | Auswahlmöglichkeiten | [Klick](DokumentationMoterl.pdf)                                                                                                                                                                        |
-|  4 | Branching paths      | [Klick](DokumentationMoterl.pdf)                                                                                                                                                                |
+|  1 | Konzeption     | PDF                                                                                                                            |
+|  2 | Charaktersteckbriefe     | PDF                                                                                                                                                                                                |
+|  3 | Auswahlmöglichkeiten | PDF                                                                                                                                               |
+|  4 | Branching paths      PDF                                                                                                                                        |
 |  5 | Transitions           | Ja                 |
 |  6 |         Audio         | Jede Szenerie hat eigenen Sound                                         |
 |  7 |         GUI            | Ja     |
@@ -26,7 +26,7 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 | 10 | Styling          | Ja              |
 | 11 | Creative Corner          | Einsatz von Protagonisten aus Mythologien               |
 | 12 | Enden            | 2 Enden                       |
-|  A | Inventory- und Item-System     | Nein|
+|  A | Inventory- und Item-System     | Ja|
 |  B | Punkteverteilungssystem     | Nein    |
 |  C | Novel-Pages             | Nein                     |
 |  D | Meter-bar             | Nein
