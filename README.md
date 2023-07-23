@@ -34,5 +34,6 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 
 Abgabe: Visual Novel: https://pranii.github.io/VisualNovelMoter/index.html
 
-ZIP Folder: https://github.com/pranii/VisualNovelMoter/blob/main/PelajPranveraMoter261210.zip 
+ZIP Folder: https://github.com/pranii/VisualNovelMoter/blob/main/PelajPranveraMoter261210.zip
+
 Konzept: https://github.com/pranii/VisualNovelMoter/blob/main/DokumentationMoter.pdf
