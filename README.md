@@ -10,9 +10,9 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 
 | Nr | Bezeichnung           | Inhalt |
 |---:|-----------------------|------|
-|    | Titel                 |   |
-|    | Name                  |   |
-|    | Matrikelnummer        |   |
+|    | Titel                 |  Moter |
+|    | Name                  |  Pranvera Pelaj |
+|    | Matrikelnummer        |  261210 |
 |  1 | Konzeption     | PDF                                                                                                                            |
 |  2 | Charaktersteckbriefe     | PDF                                                                                                                                                                                                |
 |  3 | Auswahlmöglichkeiten | PDF                                                                                                                                               |
