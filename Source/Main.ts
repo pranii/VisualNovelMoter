@@ -1,8 +1,8 @@
-namespace Template {
+namespace Moter {
   export import ƒ = FudgeCore;
   export import ƒS = FudgeStory;
 
-  console.log("FudgeStory template starting");
+  console.log("FudgeStory Moter starting");
 
  //Transitions
  export let transition = {
@@ -153,7 +153,7 @@ export let items = {
 
   Forest2: {
     name: "Forest2",
-    background: "FUDGE_Story/Template/Ressources/Background1/World2/ForestForest.png",
+    background: "FUDGE_Story/Moter/Ressources/Background1/World2/ForestForest.png",
   },
 
   Jorogumolivingroom: {
