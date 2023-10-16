@@ -1,0 +1,327 @@
+body {
+    font-family: 'Barlow', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+.fullscreen-left {
+    position: absolute; /* oder position: fixed; je nach Bedarf */
+    left: 0;
+    height: 50%;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+#über-mich .content-wrapper {
+    display: flex;
+    align-items: flex-start; /* Passt die vertikale Ausrichtung an */
+    padding: 2rem 0;
+}
+
+#über-mich .left-side {
+    flex: 1;
+    padding-right: 2rem; /* Fügt etwas Polsterung hinzu, um das Bild vom Text zu trennen */
+}
+
+#über-mich .left-side img {
+    width: 100%;
+    max-height: 100vh;
+    object-fit: cover;
+}
+
+#über-mich .right-side {
+    flex: 2;
+}
+#profile-pic {
+    border-radius: 50%;
+    margin-top: 2rem;
+}
+
+/* Projekte */
+#projekte {
+    padding: 4rem 0;
+    background-color: #f9f9f9;
+}
+
+.projekt {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+.cursor {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    mix-blend-mode: difference; /* Setzt den negativen Farbeffekt */
+    background-color: #fff;
+}
+
+
+
+.projekt img {
+    max-width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.projekt h3 {
+    display: block; /* Stellt sicher, dass der h3-Tag den gesamten verfügbaren horizontalen Raum einnimmt */
+    text-align: justify; /* Stellt den Text im Blockabsatz dar */
+    
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+
+
+.section-title {
+    font-size: 5rem;
+    opacity: 0;
+    transform: translateY(50%) scale(1.2); /* Starte mit einer leichten Vergrößerung und Verschiebung */
+    transition: opacity 1.5s, transform 1.5s cubic-bezier(0.215, 0.61, 0.355, 1); /* Verwende einen easing Effekt für eine sanftere Animation */
+    will-change: opacity, transform;
+    pointer-events: none; /* Verhindert unerwünschte Interaktionen während der Animation */
+}
+#über-mich {
+    background-color: #f9f9f9;
+    padding: 100px 0;
+    font-family: 'Barlow', sans-serif;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loader {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.profile-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-bottom: 50px;
+    object-fit: cover;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+#über-mich h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+#über-mich p {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+    max-width: 800px;
+}
+/* Klasse, die beim Scrollen hinzugefügt wird */
+.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+/* Kontakt */
+#kontakt {
+    padding: 4rem 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+#kontakt ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#kontakt li {
+    margin-bottom: 1rem;
+}
+
+.video-karussell {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Zentriert den Inhalt horizontal */
+    height: 100vh; /* Setzt die Höhe des Karussells auf die gesamte Bildschirmhöhe */
+    position: relative; /* Damit die absolut positionierten Pfeile relativ zu diesem Container positioniert werden */
+}
+
+.video-container {
+    overflow: hidden;
+    width: 100%; /* Setzt die Breite auf die gesamte Bildschirmbreite */
+    height: 100vh; /* Setzt die Höhe auf die gesamte Bildschirmhöhe */
+    white-space: nowrap;
+    transition: transform 0.3s;
+}
+
+.video-container iframe {
+    display: inline-block;
+    width: 100%; /* Setzt die Breite auf die gesamte Bildschirmbreite */
+    height: 100vh; /* Setzt die Höhe auf die gesamte Bildschirmhöhe */
+    vertical-align: top;
+}
+
+.prev, .next {
+    position: absolute; /* Positioniert die Pfeile absolut innerhalb des .video-karussell Containers */
+    top: 50%; /* Zentriert die Pfeile vertikal */
+    transform: translateY(-50%); /* Verschiebt die Pfeile um die Hälfte ihrer Höhe nach oben, um sie vertikal zu zentrieren */
+    background: rgba(255, 255, 255, 0.5); /* Setzt die Hintergrundfarbe auf die negative Farbe (Weiß) */
+    color: #000; /* Setzt die Textfarbe auf Schwarz */
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    transition: background 0.3s;
+}
+
+.prev {
+    left: 0; /* Positioniert den linken Pfeil am linken Rand */
+}
+
+.next {
+    right: 0; /* Positioniert den rechten Pfeil am rechten Rand */
+}
+
+.prev:hover, .next:hover {
+    background: rgba(255, 255, 255, 0.7); /* Ändert die Hintergrundfarbe beim Überfahren mit der Maus */
+}
+
+.prev, .next {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    transition: background 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+
+#weitere-projekte {
+    padding: 100px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.projekt-karte {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    transition: transform 0.3s;
+}
+
+.projekt-karte:hover {
+    transform: translateY(-10px);
+}
+
+.projekt-karte img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.projekt-karte h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.projekt-karte p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.projekt-karte a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #007BFF;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.projekt-karte a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1s; /* Dies verzögert die Einblendung, sodass die Ausblendung zuerst abgeschlossen wird */
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
